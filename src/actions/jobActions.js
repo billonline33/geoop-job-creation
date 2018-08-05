@@ -1,13 +1,32 @@
 import { jobService } from "../services/jobService";
 import { jobConstants } from "../constants/jobConstants";
 
+export const jobActions = {
+  loadJobs,
+  addJob
+};
+
 function loadJobs() {
+  console.log("jobAction triggerred");
   return dispatch => {
     jobService.loadJobService().then(response => {
-      let jobList = reponse.data;
+      let jobList = response;
+      console.log("jobList for JobActions=", jobList);
       dispatch({
-        type: jobConstant.LOAD_JOB_LIST,
+        type: jobConstants.LOAD_JOB_LIST,
         jobList
+      });
+    });
+  };
+}
+
+function addJob(job) {
+  console.log("job=", job);
+  return dispatch => {
+    jobService.addNewJob(job).then(() => {
+      dispatch({
+        type: jobConstants.ADD_NEW_JOB,
+        job
       });
     });
   };

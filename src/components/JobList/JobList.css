@@ -1,0 +1,19 @@
+.job-table-outer-container {
+  margin-top: 80px;
+}
+
+.job-table-outer-container .filter-container {
+  text-align: right;
+}
+
+.job-table-outer-container .job-table {
+  margin-top: 20px;
+}
+
+.job-table-outer-container .job-table th .col-heading {
+  float: left;
+  margin-left: 30%;
+}
+.job-table-outer-container .job-table th .sort-icon {
+  float: right;
+}

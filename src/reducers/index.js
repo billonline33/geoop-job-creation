@@ -1,4 +1,4 @@
-import { combineReducers } from "../../../../../Users/bhuang/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux";
+import { combineReducers } from "redux";
 import { jobReducer } from "./jobReducer";
 import { authenticationReducer } from "./authenticationReducer";
 
