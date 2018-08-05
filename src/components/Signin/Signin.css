@@ -1,0 +1,90 @@
+.sign_in_form {
+  padding: 40px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign_in_form .email {
+  width: 100%;
+  border: 1px solid #a8a8a8;
+  border-radius: 2px;
+  height: 52px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #c9caca;
+  font-family: "PTSansBold";
+  letter-spacing: 0.03em;
+}
+.sign_in_form .password {
+  width: 100%;
+  border: 1px solid #a8a8a8;
+  border-radius: 2px;
+  height: 52px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #c9caca;
+  font-family: "PTSansBold";
+  letter-spacing: 0.03em;
+}
+.sign_in_form .custom {
+  width: 100%;
+  display: block;
+}
+.sign_in_form .checkbox-rem {
+  float: left;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.sign_in_form .rem-check {
+  display: none;
+}
+.sign_in_form .rem-check-custom {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.sign_in_form .rem-check:checked + .checkbox-rem::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  background: #1c3942;
+  border-radius: 0px;
+}
+
+.sign_in_form label {
+  margin-bottom: 18px;
+}
+
+.sign_in_form label .nameremember {
+  margin-left: 17px;
+  margin-right: 20px;
+  color: #7a7a7a;
+  font-size: 16px;
+  font-family: "PTSansRegular";
+  letter-spacing: 0.05em;
+  position: relative;
+  top: -16px;
+}
+
+.button-lardge {
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 0.05em;
+}
