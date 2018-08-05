@@ -11,6 +11,8 @@ class JobList extends Component {
     this.props.history.push("/signin");
   }
 
+  componentDidMount() {}
+
   render() {
     console.log("JobList.js props=", this.props);
     return (

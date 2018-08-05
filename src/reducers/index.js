@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import { jobListReducer } from "./jobListReduce";
+import { combineReducers } from "../../../../../Users/bhuang/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux";
+import { jobReducer } from "./jobReducer";
 import { authenticationReducer } from "./authenticationReducer";
 
 export default combineReducers({
-  jobListReducer,
+  jobReducer,
   authenticationReducer
 });

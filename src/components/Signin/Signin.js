@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Signin.css";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { loginUser } from "../../reducers/authenticationReducer";
+import { userActions } from "../../actions/userActions";
 import { bindActionCreators } from "redux";
 
 class Signin extends Component {
@@ -91,7 +91,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ loginUser }, dispatch);
+  bindActionCreators({ loginUser: userActions.loginUser }, dispatch);
 
 Signin = connect(
   mapStateToProps,
