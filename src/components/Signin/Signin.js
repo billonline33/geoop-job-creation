@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Signin.css";
+import { Redirect, withRouter } from "react-router-dom";
 
 const doAuthenticate = (username, password) => {
   let apiUrl = "https://geoserviceuat-api.jobtrakka.com/oauth/token"; //Todo: remove hard code value
@@ -26,19 +27,25 @@ class Signin extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      redirect: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+
+    console.log(" Signin props=", this.props);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log("form submitted!");
+
     doAuthenticate(this.state.username, this.state.password)
       .then(response => {
-        console.log("response=", response);
+        console.log("doAuthenticate response=", response);
+        this.props.onSigninSucceed(); //callback service
+        this.setState({ redirect: true });
       })
       .catch(error => {
         console.log("Error happened during login", error);
@@ -54,7 +61,10 @@ class Signin extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, redirect } = this.state;
+
+    if (redirect) return <Redirect to="/jobList" />;
+
     return (
       <form
         className="sign_in_form"
