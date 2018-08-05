@@ -6,6 +6,8 @@ export const userActions = {
   logoffUser
 };
 
+//Todo: use refresh token to get a new access token before it expires
+
 function loginUser(username, password) {
   return dispatch => {
     //make web service call here
