@@ -10,8 +10,7 @@ class Signin extends Component {
     super(props);
     this.state = {
       username: "",
-      password: "",
-      redirect: false
+      password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,12 +19,8 @@ class Signin extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("form submitted!");
-
     const { username, password } = this.state;
-
     this.props.loginUser(username, password);
-    this.setState({ redirect: true });
   }
 
   handleChange(e) {
@@ -37,11 +32,10 @@ class Signin extends Component {
   }
 
   render() {
-    const { username, password, redirect } = this.state;
+    const { username, password } = this.state;
+    const { redirect } = this.props;
 
-    console.log("redirect=", redirect);
-
-    if (redirect) return <Redirect to="/jobList" />;
+    if (this.props.isLoggedIn) return <Redirect to="/jobList" />;
 
     return (
       <form

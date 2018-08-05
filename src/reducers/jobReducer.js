@@ -12,11 +12,11 @@ export function jobReducer(state = initialState, action) {
         jobList: action.jobList
       };
 
-    case jobConstants.ADD_NEW_JOB:
+    /*     case jobConstants.ADD_NEW_JOB:
       return {
         ...state,
         jobList: [...state.jobList, action.job]
-      };
+      }; */
 
     default:
       return state;

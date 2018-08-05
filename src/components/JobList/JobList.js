@@ -26,11 +26,9 @@ class JobList extends Component {
 
   componentDidMount() {
     this.props.loadJobs();
-    console.log("JobList=", this.props.jobList);
   }
 
   render() {
-    console.log("JobList.js props=", this.props);
     return (
       //ToDo: Show loading... when calling web service to load data
       <div className={"job-table-outer-container"}>

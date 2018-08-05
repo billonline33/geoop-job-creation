@@ -7,11 +7,9 @@ export const jobActions = {
 };
 
 function loadJobs() {
-  console.log("jobAction triggerred");
   return dispatch => {
     jobService.loadJobService().then(response => {
       let jobList = response;
-      console.log("jobList for JobActions=", jobList);
       dispatch({
         type: jobConstants.LOAD_JOB_LIST,
         jobList
@@ -21,16 +19,9 @@ function loadJobs() {
 }
 
 function addJob(job) {
-  console.log("job=", job);
   return dispatch => {
     jobService.addNewJob(job).then(() => {
       loadJobs();
     });
-    /*       .then(() => {
-        dispatch({
-          type: jobConstants.ADD_NEW_JOB,
-          job
-        });
-      }); */
   };
 }

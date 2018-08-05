@@ -23,8 +23,6 @@ function addNewJob(job) {
 
   const header = authHeader();
 
-  console.log("job999=", job);
-
   //Todo: hardcode jobDetails here for demo purpose
   const jobDetails = {
     title: job.title,
