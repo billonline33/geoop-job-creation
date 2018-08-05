@@ -34,8 +34,8 @@ class JobInput extends Component {
 
   handleClickSave() {
     this.props.addJob(this.state.job);
-    //Todo: pop up a message to show "Succeed!", before redirect to JobList page
-    this.props.history.push("/jobList");
+    //Todo: pop up a message to show "Succeed!".
+    this.handleClickCancel();
   }
 
   handleClickJobList() {
