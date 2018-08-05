@@ -2,6 +2,6 @@ const initialState = {
   jobList: []
 };
 
-export default (state = initialState, action) => {
+export function jobListReducer(state = initialState, action) {
   return state;
-};
+}

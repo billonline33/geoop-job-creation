@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { userService } from "../../services/userService";
 
 class JobList extends Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class JobList extends Component {
   }
 
   handleSignOut() {
+    userService.logoff();
     this.props.history.push("/signin");
   }
 

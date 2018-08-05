@@ -1,26 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./Signin.css";
-import { Redirect, withRouter } from "react-router-dom";
-
-const doAuthenticate = (username, password) => {
-  let apiUrl = "https://geoserviceuat-api.jobtrakka.com/oauth/token"; //Todo: remove hard code value
-
-  let postData = {
-    grant_type: "password",
-    login: username,
-    password: password
-  };
-
-  let axiosConfig = {
-    headers: {
-      "Content-Type": "application/json;charset=UTF-8",
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-
-  return axios.post(apiUrl, postData);
-};
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../../reducers/authenticationReducer";
+import { bindActionCreators } from "redux";
 
 class Signin extends Component {
   constructor(props) {
@@ -33,23 +16,16 @@ class Signin extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
-    console.log(" Signin props=", this.props);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     console.log("form submitted!");
 
-    doAuthenticate(this.state.username, this.state.password)
-      .then(response => {
-        console.log("doAuthenticate response=", response);
-        this.props.onSigninSucceed(); //callback service
-        this.setState({ redirect: true });
-      })
-      .catch(error => {
-        console.log("Error happened during login", error);
-      });
+    const { username, password } = this.state;
+
+    this.props.loginUser(username, password);
+    this.setState({ redirect: true });
   }
 
   handleChange(e) {
@@ -60,8 +36,14 @@ class Signin extends Component {
     });
   }
 
+  shouldComponentUpdate() {
+    return true;
+  }
+
   render() {
     const { username, password, redirect } = this.state;
+
+    console.log("redirect=", redirect);
 
     if (redirect) return <Redirect to="/jobList" />;
 
@@ -103,5 +85,17 @@ class Signin extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isLoggedIn: state.authenticationReducer.isLoggedIn
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ loginUser }, dispatch);
+
+Signin = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Signin);
 
 export default Signin;
