@@ -24,10 +24,13 @@ function addJob(job) {
   console.log("job=", job);
   return dispatch => {
     jobService.addNewJob(job).then(() => {
-      dispatch({
-        type: jobConstants.ADD_NEW_JOB,
-        job
-      });
+      loadJobs();
     });
+    /*       .then(() => {
+        dispatch({
+          type: jobConstants.ADD_NEW_JOB,
+          job
+        });
+      }); */
   };
 }

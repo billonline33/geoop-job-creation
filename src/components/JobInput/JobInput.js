@@ -34,6 +34,8 @@ class JobInput extends Component {
 
   handleClickSave() {
     this.props.addJob(this.state.job);
+    //Todo: pop up a message to show "Succeed!", before redirect to JobList page
+    this.props.history.push("/jobList");
   }
 
   handleClickJobList() {
@@ -51,7 +53,6 @@ class JobInput extends Component {
 
   render() {
     const { job } = this.state;
-    console.log("this.state=", this.state);
     return (
       <div className={"employee-form-outer-container"}>
         <Grid fluid>
@@ -83,9 +84,18 @@ class JobInput extends Component {
           </Row>
           <Row>
             <Col xs={12} className={"col controls-container"}>
-              <Button onClick={this.handleClickSave}> Save</Button>
-              <Button onClick={this.handleClickCancel}> Cancel</Button>
-              <Button onClick={this.handleClickJobList}> Job List</Button>
+              <Button bsStyle={"link"} onClick={this.handleClickSave}>
+                {" "}
+                Save
+              </Button>
+              <Button bsStyle={"link"} onClick={this.handleClickCancel}>
+                {" "}
+                Cancel
+              </Button>
+              <Button bsStyle={"link"} onClick={this.handleClickJobList}>
+                {" "}
+                Job List
+              </Button>
             </Col>
           </Row>
         </Grid>

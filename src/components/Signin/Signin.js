@@ -36,10 +36,6 @@ class Signin extends Component {
     });
   }
 
-  shouldComponentUpdate() {
-    return true;
-  }
-
   render() {
     const { username, password, redirect } = this.state;
 
@@ -69,11 +65,6 @@ class Signin extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <label>
-          <input className="rem-check" type="checkbox" name="checkbox-sign" />
-          <span className="checkbox-rem" />
-          <span className="nameremember">Remember me</span>
-        </label>
 
         <input
           type="submit"

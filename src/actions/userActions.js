@@ -30,6 +30,7 @@ function loginUser(username, password) {
 }
 
 function logoffUser() {
+  userService.logoff();
   return dispatch => {
     dispatch({
       type: userConstants.LOGOFF_USER

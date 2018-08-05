@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { userService } from "../../services/userService"; //todo: use userActons.logoff instead
 import { userActions } from "../../actions/userActions";
 import { jobActions } from "../../actions/jobActions";
 
@@ -17,13 +16,11 @@ class JobList extends Component {
   }
 
   handleSignOut() {
-    //userService.logoff();
     this.props.logoff();
     this.props.history.push("/signin");
   }
 
   handleAddNewJob() {
-    console.log("Add new job button clicked");
     this.props.history.push("/jobInput");
   }
 
@@ -35,6 +32,7 @@ class JobList extends Component {
   render() {
     console.log("JobList.js props=", this.props);
     return (
+      //ToDo: Show loading... when calling web service to load data
       <div className={"job-table-outer-container"}>
         <Grid>
           <Row>
@@ -52,7 +50,7 @@ class JobList extends Component {
                       <div className={"col-heading"}>Description </div>
                     </th>
                     <th>
-                      <div className={"col-heading"}>Addewss </div>
+                      <div className={"col-heading"}>Address </div>
                     </th>
                   </tr>
                 </thead>
@@ -75,9 +73,12 @@ class JobList extends Component {
           </Row>
           <Row>
             <Col xs={12} className={"col"}>
-              <Button onClick={this.handleAddNewJob}>Add New Job</Button>
-
-              <Button onClick={this.handleSignOut}>Sign Out</Button>
+              <Button bsStyle={"link"} onClick={this.handleAddNewJob}>
+                Add New Job
+              </Button>
+              <Button bsStyle={"link"} onClick={this.handleSignOut}>
+                Sign Out
+              </Button>
             </Col>
           </Row>
         </Grid>
