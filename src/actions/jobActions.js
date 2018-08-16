@@ -1,5 +1,7 @@
-import { jobService } from "../services/jobService";
-import { jobConstants } from "../constants/jobConstants";
+import { jobService } from '../services/jobService';
+import { jobConstants } from '../constants/jobConstants';
+
+let x;
 
 export const jobActions = {
   loadJobs,

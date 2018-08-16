@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "./App.css";
-import Signin from "./components/Signin/Signin";
-import { BrowserRouter, Route, withRouter, Redirect } from "react-router-dom";
-import jobInput from "./components/JobInput/JobInput";
-import jobList from "./components/JobList/JobList";
-import { PrivateRoute } from "./components/PrivateRoute";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './App.css';
+import Signin from './components/Signin/Signin';
+import { BrowserRouter, Route, withRouter, Redirect } from 'react-router-dom';
+import jobInput from './components/JobInput/JobInput';
+import jobList from './components/JobList/JobList';
+import { PrivateRoute } from './components/PrivateRoute';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
